@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "coursework-6"
+version = "0.1.0"
+description = ""
+authors = ["Aleksei Prusikov <imemphatic@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.4"
+apscheduler = "^3.11.0"
+django-apscheduler = "^0.7.0"
+python-dotenv = "^1.0.1"
+pillow = "^11.1.0"
+cache = "^1.0.3"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
