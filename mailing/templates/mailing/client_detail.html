@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Детали клиента{% endblock %}
+
+{% block content %}
+<h1>Детали клиента</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ object.full_name }}</h5>
+        <p class="card-text"><strong>Email:</strong> {{ object.email }}</p>
+        <p class="card-text"><strong>Комментарий:</strong> {{ object.comment }}</p>
+    </div>
+</div>
+<a href="{% url 'client_list' %}" class="btn btn-secondary mt-3">Назад к списку</a>
+<a href="{% url 'client_update' object.pk %}" class="btn btn-primary mt-3">Редактировать</a>
+<a href="{% url 'client_delete' object.pk %}" class="btn btn-danger mt-3">Удалить</a>
+{% endblock %}

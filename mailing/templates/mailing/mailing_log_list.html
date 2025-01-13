@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Логи рассылок{% endblock %}
+
+{% block content %}
+<h1>Логи рассылок</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Рассылка</th>
+            <th>Статус</th>
+            <th>Сообщение</th>
+            <th>Время</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.mailing.id }}</td>
+            <td>{{ log.status }}</td>
+            <td>{{ log.message }}</td>
+            <td>{{ log.timestamp }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Нет записей в логе</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

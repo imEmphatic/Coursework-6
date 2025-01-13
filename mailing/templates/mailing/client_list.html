@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Список клиентов{% endblock %}
+
+{% block content %}
+<h1>Список клиентов</h1>
+<a href="{% url 'client_create' %}" class="btn btn-primary mb-3">Добавить клиента</a>
+<ul class="list-group">
+    {% for client in object_list %}
+    <li class="list-group-item">
+        <a href="{% url 'client_detail' client.pk %}">{{ client.full_name }}</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">Нет клиентов</li>
+    {% endfor %}
+</ul>
+{% endblock %}

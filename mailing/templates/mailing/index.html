@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Добро пожаловать в наш сервис рассылок</h1>
+
+<section class="mailing-stats">
+    <h2>Статистика рассылок</h2>
+    <ul>
+        <li>Всего рассылок: {{ total_mailings }}</li>
+        <li>Активных рассылок: {{ active_mailings }}</li>
+        <li>Уникальных клиентов: {{ unique_clients }}</li>
+    </ul>
+</section>
+
+<section class="random-posts">
+    <h2>Случайные статьи из блога</h2>
+    {% for post in random_posts %}
+        <article>
+            <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+            <p>{{ post.content|truncatewords:30 }}</p>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}

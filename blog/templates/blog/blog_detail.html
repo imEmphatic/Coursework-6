@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<article class="blog-post-detail">
+    <h1>{{ post.title }}</h1>
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-post-image">
+    {% endif %}
+    <div class="blog-post-content">
+        {{ post.content|safe }}
+    </div>
+    <div class="blog-post-meta">
+        <p>Автор: {{ post.author }}</p>
+        <p>Дата публикации: {{ post.pub_date|date:"d.m.Y H:i" }}</p>
+        <p>Просмотры: {{ post.views_count }}</p>
+    </div>
+</article>
+{% endblock %}

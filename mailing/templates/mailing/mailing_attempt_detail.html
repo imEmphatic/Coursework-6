@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Детали попыток рассылки #{{ mailing.id }}{% endblock %}
+
+{% block content %}
+<h1>Детали попыток рассылки #{{ mailing.id }}</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Время</th>
+            <th>Клиент</th>
+            <th>Статус</th>
+            <th>Ответ сервера</th>
+            <th>Сообщение об ошибке</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attempt in attempts %}
+        <tr>
+            <td>{{ attempt.timestamp }}</td>
+            <td>{{ attempt.client.email }}</td>
+            <td>{% if attempt.status %}Успешно{% else %}Ошибка{% endif %}</td>
+            <td>{{ attempt.server_response }}</td>
+            <td>{{ attempt.error_message }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">Нет данных о попытках для этой рассылки</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'mailing_attempt_stats' %}" class="btn btn-secondary">Назад к статистике</a>
+{% endblock %}
