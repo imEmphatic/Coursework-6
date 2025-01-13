@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
-from .models import Client, Message, Mailing, MailingAttempt, MailingLog
+
+from .models import Client, Mailing, MailingAttempt, MailingLog, Message
 
 CustomUser = get_user_model()
 

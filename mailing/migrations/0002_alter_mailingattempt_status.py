@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mailing', '0001_initial'),
+        ("mailing", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mailingattempt',
-            name='status',
-            field=models.BooleanField(choices=[(True, 'Успешно'), (False, 'Неудачно')]),
+            model_name="mailingattempt",
+            name="status",
+            field=models.BooleanField(choices=[(True, "Успешно"), (False, "Неудачно")]),
         ),
     ]

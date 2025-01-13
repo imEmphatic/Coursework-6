@@ -15,10 +15,10 @@
 <section class="random-posts">
     <h2>Случайные статьи из блога</h2>
     {% for post in random_posts %}
-        <article>
-            <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
-            <p>{{ post.content|truncatewords:30 }}</p>
-        </article>
+    <article>
+        <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{ post.content|truncatewords:30 }}</p>
+    </article>
     {% endfor %}
 </section>
 {% endblock %}

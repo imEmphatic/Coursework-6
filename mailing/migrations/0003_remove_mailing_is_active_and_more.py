@@ -7,59 +7,77 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mailing', '0002_alter_mailingattempt_status'),
+        ("mailing", "0002_alter_mailingattempt_status"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mailing',
-            name='is_active',
+            model_name="mailing",
+            name="is_active",
         ),
         migrations.RemoveField(
-            model_name='mailingattempt',
-            name='error_message',
+            model_name="mailingattempt",
+            name="error_message",
         ),
         migrations.AlterField(
-            model_name='mailing',
-            name='periodicity',
-            field=models.CharField(choices=[('daily', 'Daily'), ('weekly', 'Weekly'), ('monthly', 'Monthly')], max_length=10),
+            model_name="mailing",
+            name="periodicity",
+            field=models.CharField(
+                choices=[
+                    ("daily", "Daily"),
+                    ("weekly", "Weekly"),
+                    ("monthly", "Monthly"),
+                ],
+                max_length=10,
+            ),
         ),
         migrations.AlterField(
-            model_name='mailing',
-            name='status',
-            field=models.CharField(choices=[('created', 'Created'), ('running', 'Running'), ('paused', 'Paused'), ('completed', 'Completed')], default='created', max_length=10),
+            model_name="mailing",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("created", "Created"),
+                    ("running", "Running"),
+                    ("paused", "Paused"),
+                    ("completed", "Completed"),
+                ],
+                default="created",
+                max_length=10,
+            ),
         ),
         migrations.AlterField(
-            model_name='mailingattempt',
-            name='server_response',
+            model_name="mailingattempt",
+            name="server_response",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='mailingattempt',
-            name='status',
+            model_name="mailingattempt",
+            name="status",
             field=models.BooleanField(),
         ),
         migrations.AlterField(
-            model_name='mailingattempt',
-            name='timestamp',
+            model_name="mailingattempt",
+            name="timestamp",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='mailinglog',
-            name='mailing',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mailing.mailing'),
+            model_name="mailinglog",
+            name="mailing",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="mailing.mailing"
+            ),
         ),
         migrations.AlterField(
-            model_name='mailinglog',
-            name='timestamp',
+            model_name="mailinglog",
+            name="timestamp",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='message',
-            name='subject',
+            model_name="message",
+            name="subject",
             field=models.CharField(max_length=255),
         ),
         migrations.DeleteModel(
-            name='CustomUser',
+            name="CustomUser",
         ),
     ]
